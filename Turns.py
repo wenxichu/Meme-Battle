@@ -4,10 +4,10 @@ from Actions import Action, EnemyAction
 import time
 
 
-class HealthLimit:
+class Health:
 
     @staticmethod
-    def check_health():
+    def check_limit():
         if CharStats.char_hp > Stats.FULL_HEALTH:
             CharStats.char_hp = 25
 
@@ -47,9 +47,9 @@ class Round(CharStats, OppStats):
         print(f"Health: 25/25    Charge: 0/4    Special: {fighter.special}")
         # Turn Order
         while CharStats.char_hp > 0 and OppStats.opp_hp > 0:
-            HealthLimit().check_health()
+            Health().check_limit()
             Action()
-            if self.__le__():
+            if OppStats.opp_hp <= 0:
                 break
             EnemyAction()
             if self.num_turns == 10:
