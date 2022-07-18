@@ -23,6 +23,7 @@ class Game:
         elif player == "No":
             print("\nOh well, see you later then!")
             print("\nYou exit the ring without picking anyone.")
+            print("\n ============>> [Exit] ")
             exit()
 
     def __str__(self):
@@ -71,6 +72,7 @@ class Game:
             Round()
         elif new_round == "No":
             print("\nYou take your winnings and leave. Had enough excitement for one day.")
+            print("\n ============>> [Exit] ")
             exit()
         else:
             raise Exception("\nOops, the program has crashed! You see the blue screen of death.")
