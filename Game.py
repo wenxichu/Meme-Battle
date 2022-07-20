@@ -44,7 +44,7 @@ class Game:
     def tutorial():
         instructions = ("\nMeme Battle is a turn-based RPG where you type in commands and the game responds to your "
                         "actions. It is ", "entirely text-based, so you must use the exact letters or else the game "
-                                           "will not recognize your input.\n",
+                                           "will not recognize your input. Type in atk, def, or spl on your turn.\n",
 
                         "1. Choose Your Favorite Meme Fighter",
                         "2. Select an Action on Your Turn",
