@@ -97,7 +97,7 @@ class Fighter(Stats):
         Fighter.char_copy = dict(Fighter.char_stats)
 
 
-# The Bad Guys
+# Meet The Normies
 class Enemy(Stats):
     all_enemies = ('NPC', 'Meme Man', 'Boomer', 'Soyjak', 'Neckbeard')
     opponent_stats = {}
