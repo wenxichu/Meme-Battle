@@ -66,7 +66,7 @@ class Fighter(Stats):
 
         # Doomer
         if meme_fighter == "Doomer":
-            self._attack = 2
+            self._attack = 3
             self._defense = 4
             self._special = "Crippling Depression"
 
