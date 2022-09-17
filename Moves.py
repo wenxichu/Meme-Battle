@@ -46,8 +46,8 @@ class CharSpecial(Fighter, Enemy):
             return None
 
     def doomer(self):
-        CharStats.char_hp += 1
-        self.char_stats["Attack"] += 2
+        CharStats.char_hp += 2
+        self.char_stats["Attack"] += 1
         OppStats.opp_cg = 0
         print(f"Doomer\'s attack is increased. {self.opponent_stats['Profile']} loses the will to fight.")
 
