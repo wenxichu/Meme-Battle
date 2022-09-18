@@ -75,8 +75,11 @@ class Game:
             print("\n ============>> [Exit] ")
             exit()
         else:
-            raise Exception("\nOops, the program has crashed! You see the blue screen of death.")
+            print("\nOops, the game has crashed! Relaunching the program...")
+            print("\n ============== \n")
+            meme_battle.start_game()
 
-
+            
 meme_battle = Game()
 meme_battle.start_game()
+
