@@ -33,8 +33,8 @@ class Round(CharStats, OppStats):
         CharStats.char_hp, CharStats.char_cg = (25, 0)
         OppStats.opp_hp, OppStats.opp_cg = (25, 0)
 
-    def __le__(self):
-        return OppStats.opp_hp <= 0
+    def __le__(self, hit_points):
+        return hit_points <= 0
 
     def run_game(self):
         fighter = Fighter()
@@ -58,26 +58,26 @@ class Round(CharStats, OppStats):
         time.sleep(1.0)
         print("\nThe game has finally ended. Time to tally up the results!")
         # Win
-        if self.__le__():
+        if self.__le__(OppStats.opp_hp):
             print(f"\nWell done, {Fighter.char_stats['Profile']} has won the match! The crowd goes absolutely wild.")
             print("The judges will now decide on your performance.")
         # Lose
-        elif CharStats.char_hp <= 0:
+        elif self.__le__(CharStats.char_hp):
             print(f"\n{Enemy.opponent_stats['Profile']} has won the match! Better luck next time. "
                   f"Remember...eye on the prize.")
 
     def trophies(self):
         time.sleep(1.2)
         # Bronze
-        if self.__le__() and self.num_turns >= 30:
+        if self.__le__(OppStats.opp_hp) and self.num_turns >= 30:
             print(f"\nBogdanoff awards {Fighter.char_stats['Profile']} with BRONZE medal #69. "
                   f"You receive 69 Magic: The Gathering trading cards.")
         # Silver
-        elif self.__le__() and self.num_turns in range(20, 30):
+        elif self.__le__(OppStats.opp_hp) and self.num_turns in range(20, 30):
             print(f"\nBogdanoff awards {Fighter.char_stats['Profile']} with SILVER medal #420. "
                   f"You receive a year\'s supply of home-grown weed.")
         # Gold
-        elif self.__le__() and self.num_turns <= 19:
+        elif self.__le__(OppStats.opp_hp) and self.num_turns <= 19:
             print(f"\nBogdanoff awards {Fighter.char_stats['Profile']} with GOLD medal #51. "
                   f"You drive off to raid Area 51 on a new lambo.")
         # Defeat
