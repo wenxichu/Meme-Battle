@@ -1,8 +1,7 @@
 from Turns import Round
-from Moves import Effects
+from Moves import Effects, CharStats, OppStats
 from Actions import Action, EnemyAction
 import time
-import os
 
 
 class Game:
@@ -22,7 +21,7 @@ class Game:
             cls.play_again()
         elif player == "No":
             print("\nOh well, see you later then!")
-            print("\nYou exit the ring without picking anyone.")
+            print("\nYou exit the ring and forfeit the bonus match.")
             print("\n ============>> [Exit] ")
             exit()
 
@@ -44,7 +43,7 @@ class Game:
     def tutorial():
         instructions = ("\nMeme Battle is a turn-based RPG where you type in commands and the game responds to your "
                         "actions. It is ", "entirely text-based, so you must use the exact letters or else the game "
-                                           "will not recognize your input. Type in atk, def, or spl on your turn.\n",
+                                           "will not recognize your input.\n",
 
                         "1. Choose Your Favorite Meme Fighter",
                         "2. Select an Action on Your Turn",
@@ -62,13 +61,16 @@ class Game:
 
     @classmethod
     def play_again(cls):
-        print(os.linesep)
-        new_round = input("Do you want to play another match? (Yes/No) ").title()
+        print("\n")
+        new_round = input("Do you want to play the bonus match? (Yes/No) ").title()
         Effects.reset_stats()
+        CharStats.disabled, OppStats.disabled = (False, False)
         Action.defending, EnemyAction.defending = (False, False)
 
         if new_round == "Yes":
-            print(os.linesep)
+            print("\nWelcome back seasoned fighters. We hoped you enjoyed the commercial break.")
+            print("\nHere are the next two contestants. Step up to the ring and introduce yourselves!")
+            time.sleep(1.5)
             Round()
         elif new_round == "No":
             print("\nYou take your winnings and leave. Had enough excitement for one day.")
@@ -79,7 +81,7 @@ class Game:
             print("\n ============== \n")
             meme_battle.start_game()
 
-            
+
 meme_battle = Game()
 meme_battle.start_game()
 
