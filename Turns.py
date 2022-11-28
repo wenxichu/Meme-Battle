@@ -25,13 +25,9 @@ def bonus_fighter():
     Fighter()._defense = 3
     Fighter()._special = "Avoid Eye Contact"
 
-    attack = 2
-    defense = 3
-    special = "Avoid Eye Contact"
-
-    Fighter.char_stats.update({"Profile": "Virgin", "Attack": attack, "Defense": defense, "Special": special})
+    Fighter.char_stats.update({"Profile": "Virgin", "Attack": 2, "Defense": 3, "Special": "Avoid Eye Contact"})
     print("\n" + '\033[1mVirgin\033[0m')
-    print(f"Attack: {attack}\nDefense: {defense}\nSpecial: {special}\n")
+    print(f"Attack: {2}\nDefense: {3}\nSpecial: Avoid Eye Contact\n")
     Fighter.char_copy = dict(Fighter.char_stats)
 
 
@@ -40,18 +36,13 @@ def bonus_enemy():
     Enemy()._defense = 2
     Enemy()._special = "Rant About Society"
 
-    enemy_attack = 3
-    enemy_defense = 2
-    enemy_special = "Rant About Society"
-
-    Enemy.opp_stats.update({"Profile": "Incel", "Attack": enemy_attack, "Defense": enemy_defense,
-                            "Special": enemy_special})
+    Enemy.opp_stats.update({"Profile": "Incel", "Attack": 3, "Defense": 2, "Special": "Rant About Society"})
     Enemy.opp_copy = dict(Enemy.opp_stats)
     time.sleep(Enemy.countdown)
 
     print("Your opponent is the\033[1m Incel\033[0m.\n")
-    print(f"Attack: {enemy_attack}\nDefense: {enemy_defense}\nSpecial: {enemy_special}")
-    print("\nPreparing for battle...\n")
+    print(f"Attack: {3}\nDefense: {2}\nSpecial: Rant About Society\n")
+    print("Preparing for battle...\n")
 
 
 class Health:
